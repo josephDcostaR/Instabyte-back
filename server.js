@@ -1,51 +1,20 @@
-import express from 'express';
-import routes from './src/routes/postsRoutes.js';
+import express from 'express'; // Importa o framework Express para criar e gerenciar a aplicação web
+import routes from './src/routes/postsRoutes.js'; // Importa as rotas configuradas para os endpoints relacionados aos posts
 
-
-// Importamos o framework Express para criar a nossa aplicação web.
-// Importamos a função conectarAoBanco para estabelecer a conexão com o banco de dados MongoDB.
-
-
+// Criamos um array de posts para uso inicial (exemplo ou teste), mas os dados reais vêm do banco de dados.
 const posts = [
-  // ... seus dados de posts
+  // ... dados de posts (se necessário, podem ser utilizados para teste ou como mock)
 ];
-// Criamos um array de objetos para representar os posts.
-// Este array será usado como um exemplo inicial, mas os dados reais serão obtidos do banco de dados.
 
+const app = express(); // Inicializa uma nova instância do Express
 
+app.use(express.static("uploads")); 
+// Configura o diretório "uploads" para servir arquivos estáticos, como imagens armazenadas.
 
-const app = express();
-app.use(express.static("uploads"))
-routes(app)
+routes(app); 
+// Aplica as rotas definidas em `postsRoutes.js` na aplicação Express
 
-// Criamos uma instância do Express para iniciar nossa aplicação.
-
-
-// Ouvi as requisições na porta 3000
+// Inicia o servidor na porta 3000 e exibe uma mensagem no console quando está pronto
 app.listen(3000, () => {
-  console.log("Servidor escutando...");
+  console.log("Servidor escutando..."); // Indica que o servidor está rodando
 });
-// Iniciamos o servidor e fazemos ele escutar por requisições na porta 3000.
-// Quando o servidor inicia, uma mensagem é exibida no console.
-
-
-// Definimos uma rota GET para o endpoint "/posts".
-// Quando uma requisição GET é feita para este endpoint:
-//   1. Chamamos a função `getTodosPosts()` para obter todos os posts do banco de dados.
-//   2. Enviamos uma resposta com status 200 (sucesso) e os posts no formato JSON.
-
-// ... seus comentários anteriores ...
-
-
-// //Verifica se id é iqual a id
-// function buscarPostPorID(id) {
-//   return posts.findIndex((post) =>{
-//         return post.id === Number(id)
-//   })
-// }
-
-// //Rota retorna dados apartir de um id
-// app.get("/posts/:id", (req, res) => {
-//   const index = buscarPostPorID(req.params.id);
-//   res.status(200).json(posts[index]);
-// });
