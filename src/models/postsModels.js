@@ -29,3 +29,14 @@ export async function atualizarPost(id, novoPost) {
     { $set: novoPost } // Atualiza os campos do documento com os dados fornecidos
   );
 }
+
+// Função para deletar um post existente no banco de dados
+export async function deletePost(id) {
+  const db = conexao.db("imersao-instabytes"); // Seleciona o banco de dados "imersao-instabytes"
+  const colecao = db.collection("posts"); // Seleciona a coleção "posts" dentro do banco
+  const objID = ObjectId.createFromHexString(id); // Converte o ID fornecido em um ObjectId válido
+  return colecao.deleteOne(
+    { _id: new ObjectId(objID) } // Busca o documento pelo ID
+     // deleta os campos do documento com os dados fornecidos
+  );
+}

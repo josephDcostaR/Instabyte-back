@@ -1,6 +1,6 @@
 import express from "express"; // Importa o framework Express para criar rotas e gerenciar a aplicação
 import multer from "multer"; // Importa o Multer para gerenciar uploads de arquivos
-import { listarPosts, postarNovoPost, uploadImagem, atualizarNovoPost } from "../controllers/postsController.js"; // Importa as funções do controller de posts
+import { listarPosts, postarNovoPost, uploadImagem,  atualizarNovoPost, atualizarDescricaoPost, deletarPost } from "../controllers/postsController.js"; // Importa as funções do controller de posts
 import cors from "cors"; // Importa o middleware CORS para gerenciar políticas de acesso entre domínios
 
 // Configurações do CORS para permitir requisições apenas do endereço especificado
@@ -41,8 +41,12 @@ const routes = (app) => {
   // Rota POST para fazer upload de uma imagem e criar um post associado
   app.post("/upload", upload.single("imagem"), uploadImagem);
 
-  // Rota PUT para atualizar um post existente com base no ID
-  app.put("/upload/:id", atualizarNovoPost);
+  app.put("/updatePost/:id", atualizarNovoPost); // Atualizar o post (exceto descrição)
+  
+  app.put("/updateDescricao/:id/descricao", atualizarDescricaoPost); // Atualizar descrição via Gemini
+
+
+  app.delete("/delete/:id", deletarPost);
 };
 
 export default routes; // Exporta as rotas para serem usadas na aplicação principal

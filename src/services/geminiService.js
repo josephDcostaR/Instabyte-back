@@ -9,9 +9,10 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Função para gerar uma descrição (alt-text) de uma imagem usando o Gemini
 export default async function gerarDescricaoComGemini(imageBuffer) {
+  
   // Prompt que será enviado ao modelo para gerar uma descrição em português
   const prompt =
-    "Gere uma descrição em português do brasil para a seguinte imagem";
+    "Gere uma descrição em português do brasil para a seguinte imagem em 5 linhas, lembre de não se incluir no post, não use caracteres que tem chance de quebrar o texto, o mesmo vai ser usado em um html";
 
   try {
     // Configura a imagem a ser analisada, convertendo o buffer em base64
