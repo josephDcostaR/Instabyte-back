@@ -10,7 +10,7 @@ Para observar o conteudo dessa api voce também pode utilizar [instabyte-front](
 - lembre de executar o npm install.
 - execute o npm update parcel.
 - para rodar o front use o npm run dev
-- crie um .env com porta que o bank esta usando (exemplo API_URL = <SUA-API> )
+- crie um .env com porta que o bank esta usando (exemplo API_URL = API-USER)
 
 ## 🚀 Funcionalidades
 
