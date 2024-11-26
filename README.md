@@ -4,6 +4,14 @@ Este é um backend desenvolvido em **JavaScript** e **Node.js** que gerencia pos
 
 O comumo da api pode ser feito atravez do postman ou outros.
 
+Para observar o conteudo dessa api voce também pode utilizar [instabyte-front](https://github.com/josephDcostaR/instabyte-front) em conjunto com backendpara ter uma aplicação funcional na sua maquina local.
+
+## 🖥 requisitos do front
+- lembre de executar o npm install.
+- execute o npm update parcel.
+- para rodar o front use o npm run dev
+- crie um .env com porta que o bank esta usando (exemplo API_URL = <SUA-API> )
+
 ## 🚀 Funcionalidades
 
 - **Criar Postagens**: Salve novas postagens com texto e imagens.
